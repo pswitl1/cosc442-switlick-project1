@@ -30,6 +30,12 @@ public class GameboardTest extends TestCase {
 	}
 	
 	public void testPropertyNumberForColor() {
+		createGameBoard();
+		assertEquals(2, gameBoard.getPropertyNumberForColor("blue"));
+		assertEquals(1, gameBoard.getPropertyNumberForColor("green"));
+	}
+
+	private void createGameBoard() {
 		PropertyCell cell1 = new PropertyCell();
 		cell1.setName("Blue 1");
 		cell1.setColorGroup("blue");
@@ -39,12 +45,9 @@ public class GameboardTest extends TestCase {
 		PropertyCell cell3 = new PropertyCell();
 		cell3.setName("Green 1");
 		cell3.setColorGroup("green");
-		
 		gameBoard.addCell(cell1);
 		gameBoard.addCell(cell2);
 		gameBoard.addCell(cell3);
-		assertEquals(2, gameBoard.getPropertyNumberForColor("blue"));
-		assertEquals(1, gameBoard.getPropertyNumberForColor("green"));
 	}
 	
 	public void testQueryCell() {
