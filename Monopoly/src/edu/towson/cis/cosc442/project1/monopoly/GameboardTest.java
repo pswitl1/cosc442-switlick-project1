@@ -3,23 +3,39 @@ package edu.towson.cis.cosc442.project1.monopoly;
 import junit.framework.TestCase;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GameboardTest.
+ */
 public class GameboardTest extends TestCase {
 
+	/** The cell. */
 	Cell cell;
+	
+	/** The game board. */
 	GameBoard gameBoard;
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		gameBoard = new GameBoard();
 		cell = new PropertyCell();
 		cell.setName("TempCell");
 	}
 
+	/**
+	 * Test add cell.
+	 */
 	public void testAddCell() {
 		assertEquals(1, gameBoard.getCellNumber());
 		gameBoard.addCell(cell);
 		assertEquals(2, gameBoard.getCellNumber());
 	}
 	
+	/**
+	 * Test cells for monopoly.
+	 */
 	public void testCellsForMonopoly() {
 		GameBoard gb = new SimpleGameBoard();
 		PropertyCell[] properties = gb.getPropertiesInMonopoly("blue");
@@ -29,12 +45,18 @@ public class GameboardTest extends TestCase {
 		assertEquals(3, properties.length);
 	}
 	
+	/**
+	 * Test property number for color.
+	 */
 	public void testPropertyNumberForColor() {
 		createGameBoard();
 		assertEquals(2, gameBoard.getPropertyNumberForColor("blue"));
 		assertEquals(1, gameBoard.getPropertyNumberForColor("green"));
 	}
 
+	/**
+	 * Creates the game board.
+	 */
 	private void createGameBoard() {
 		PropertyCell cell1 = new PropertyCell();
 		cell1.setName("Blue 1");
@@ -50,11 +72,17 @@ public class GameboardTest extends TestCase {
 		gameBoard.addCell(cell3);
 	}
 	
+	/**
+	 * Test query cell.
+	 */
 	public void testQueryCell() {
 		gameBoard.addCell(cell);
 		assertSame(cell,gameBoard.queryCell("TempCell"));
 	}
 	
+	/**
+	 * Test query cell index.
+	 */
 	public void testQueryCellIndex() {
 		gameBoard.addCell(cell);
 		assertEquals(0,gameBoard.queryCellIndex("Go"));
